@@ -2,7 +2,11 @@
 #include<stdio.h>
 
 #include"various.h"
-
+int chess_put(int x, int y)
+{
+    chess_board_array[x+y*X_NUM] = player;
+    return 0;
+}
 
 int chess_doing(void)
 {
@@ -26,6 +30,18 @@ int chess_doing(void)
     {
         cy += SPACE;
     }
-    fb_circle(cx,cy,R,0x00345436); 
+    fb_circle(cx,cy,R,current_color);
+    chess_put((cx-ST_Y)/SPACE,(cy-ST_Y)/SPACE);//定位数组模拟棋盘的落子点
+    if(current_color == WHITE)//落子后交换选手 切换棋子颜色
+    {
+        current_color = BLACK;
+        player = 1;
+    }
+    else
+    {
+        current_color = WHITE;
+        player = 2;
+    }
+
     return 0;
 }

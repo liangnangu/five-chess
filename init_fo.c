@@ -9,8 +9,13 @@
 
 
 fbscr_t fb_v ;// 重新定义结构体变量fb_v
+
 int mx = 0;
 int my = 0;
+char player ;
+u32_t current_color;
+char chess_board_array[X_NUM*Y_NUM] ={0};
+
 int init_fo(void)
 {
     int fd;
@@ -51,5 +56,9 @@ int init_fo(void)
         }
     }
     */
+    memset(chess_board_array,0,X_NUM*Y_NUM);//清除棋盘
+    current_color = BLACK;
+    player = 1;
+
     return 0;
 }

@@ -6,9 +6,13 @@ typedef unsigned int  u32_t;
 #define  SPACE 30
 #define  ST_X  150
 #define  ST_Y  40
+
 #define  X_NUM  29
 #define  Y_NUM  24
-#define  R      13   
+#define  R      13  
+
+#define  BLACK  0x000000ff
+#define  WHITE  0x00ffffff
 
 typedef struct 
 {
@@ -35,7 +39,6 @@ void print_chess(u32_t  color);
 int draw_cursor(int x, int y);
 int save_bg(int x, int y);
 int restore_bg(int x, int y);
-int save_bg(int x, int y);
 int mouse_doing(void);
 int chess_doing(void);
 #endif
