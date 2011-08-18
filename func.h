@@ -11,7 +11,7 @@ typedef unsigned int  u32_t;
 #define  Y_NUM  24
 #define  R      13  
 
-#define  BLACK  0x000000ff
+#define  BLACK  0x0000000f
 #define  WHITE  0x00ffffff
 
 typedef struct 

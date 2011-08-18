@@ -95,6 +95,7 @@ int mouse_doing(void) //鼠标工作
     int fd = 0;
     mouse_event m_e;
     int press_do = 0;
+    char flag;
     fd = open("/dev/input/mice",O_RDWR|O_NONBLOCK);
     if(fd == -1)
     {
@@ -129,7 +130,7 @@ int mouse_doing(void) //鼠标工作
                 {
                     press_do = 0;           //
                   //  fb_circle(mx,my,R,0x00aabbcc);
-                    chess_doing();
+                    flag = chess_doing();
                 }
                 if(press_do == 2)
                 {
@@ -151,8 +152,13 @@ int mouse_doing(void) //鼠标工作
                 default:break; 
             }
             draw_cursor(mx,my);
+            if (flag > 0)
+            {
+                printf("who player %d wine\n",flag);
+                break;
+            }
         }
     }
-
+    close(fd);
     return 0;
 }
