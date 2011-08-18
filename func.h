@@ -41,4 +41,5 @@ int save_bg(int x, int y);
 int restore_bg(int x, int y);
 int mouse_doing(void);
 int chess_doing(void);
+void bga(void);
 #endif

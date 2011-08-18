@@ -3,9 +3,11 @@
 #include<unistd.h>
 #include<fcntl.h>
 #include<stdlib.h>
+#include<string.h>
+#include"func.h"
 
 #define X___   0x00f173ac
-#define T___   0x00000001
+#define T___   0x00ffd39b
 #define BORD   0x002b4490
 #define C_W    10
 #define C_H    17
@@ -33,6 +35,7 @@ static u32_t coursor_pixel[C_W*C_H]=   ///这个结构体划出了鼠标的形�
 
 
 u32_t bg[C_W*C_H]={};
+
 int draw_cursor(int x, int y)  //在屏幕上打印出鼠标的图形
 {
     int i = 0;
@@ -90,6 +93,22 @@ int get_mose_info(int fd ,mouse_event *p)//读取鼠标信息
     return n;
 }
 
+int reinit(void)
+{
+    memset(fb_v.memo, 0, fb_v.w*fb_v.h*fb_v.bpp/8);
+    memset(chess_board_array, 0, X_NUM*Y_NUM);
+    bga();
+
+    chess_board(0x00000000);
+
+
+    player = 1;
+    current_color = BLACK;
+    mx = fb_v.w/2;
+    my = fb_v.h/2;
+    draw_cursor(mx,my);
+    return 0;
+}
 int mouse_doing(void) //鼠标工作
 {
     int fd = 0;
@@ -155,7 +174,9 @@ int mouse_doing(void) //鼠标工作
             if (flag > 0)
             {
                 printf("who player %d wine\n",flag);
-                break;
+                flag = 0;
+                getchar();
+                reinit();
             }
         }
     }

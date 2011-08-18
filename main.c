@@ -14,8 +14,9 @@ int main(int argc, const char *argv[])
   //  fb_line(fb_v.w-1, 0, 0, fb_v.h-1,0x000000ff);
   //  fb_line(300, fb_v.h-1,400,0,0x00abcdef);
    // fb_circle(500, 300, 240, 0x00ff0000);
-      chess_board(0x000000ff);
-      print_chess(0x00d71345);
+      bga();
+      chess_board(0x00000000);
+ //     print_chess(0x00d71345);
    // save_bg(512,384);
    // draw_cursor(512,384);
    // sleep(1);
