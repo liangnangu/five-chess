@@ -1,3 +1,4 @@
+//关于鼠标的一些操作
 #include<stdio.h>
 #include"various.h"
 #include<unistd.h>
@@ -93,7 +94,7 @@ int get_mose_info(int fd ,mouse_event *p)//读取鼠标信息
     return n;
 }
 
-int reinit(void)
+int reinit(void)           // 一盘结束后重新初始化
 {
     memset(fb_v.memo, 0, fb_v.w*fb_v.h*fb_v.bpp/8);
     memset(chess_board_array, 0, X_NUM*Y_NUM);

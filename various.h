@@ -1,3 +1,5 @@
+///系统变量声明//
+
 #ifndef _VARIOUS_H_
 #define _VARIOUS_H_
 

@@ -1,3 +1,5 @@
+/*存放项目声明文件  结构体定义 宏定义*/
+
 #ifndef _FUNC_H_
 #define _FUNC_H_ 
 int init_fo(void);

@@ -1,3 +1,4 @@
+//初始化操作//
 #include<stdio.h>
 #include"func.h"
 #include<stdlib.h>
@@ -33,7 +34,7 @@ int init_fo(void)
         perror("ioctl");
         exit(0); 
     }
-    printf("w=%d\tl=%d\tbit=%d\n",fb_var.xres,fb_var.yres,fb_var.bits_per_pixel);
+  //  printf("w=%d\tl=%d\tbit=%d\n",fb_var.xres,fb_var.yres,fb_var.bits_per_pixel);//打印屏幕信息
     fb_v.w = fb_var.xres;
     fb_v.h = fb_var.yres;
     fb_v.bpp = fb_var.bits_per_pixel;

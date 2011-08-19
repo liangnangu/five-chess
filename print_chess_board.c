@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include "various.h"
 #include"func.h"
-void bga(void)
+void bga(void)       //初始化背景颜色
 {
     int i = 0 ;
     int j = 0;
@@ -13,7 +13,7 @@ void bga(void)
         }
     }
 }
-int chess_board(u32_t color)
+int chess_board(u32_t color)   //画棋盘
 {
     int i ;
     for (i = 0; i < Y_NUM; i++)

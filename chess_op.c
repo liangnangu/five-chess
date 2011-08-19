@@ -3,7 +3,7 @@
 
 #include"various.h"
 
-int check(int x,int y)//具体判断
+int check(int x,int y)//具体判断棋子位置
 {
     int i = 0;
     int j = 0;
@@ -13,7 +13,7 @@ int check(int x,int y)//具体判断
     {
         return 0;
     }
-    for (i = 1; i < 5; i++)//横线判断
+    for (i = 1; i < 5; i++)//横线判断五个棋子是否成行
     {
         if (who == chess_board_array[x+i+y*X_NUM])
         {
@@ -29,7 +29,7 @@ int check(int x,int y)//具体判断
         return who;
     }
         count = 1;
-   for (i = 1, j = -1 ; i < 5; i++,j--)//竖线
+   for (i = 1, j = -1 ; i < 5; i++,j--)//竖线判断五个棋子是否成行
     {
         if (who == chess_board_array[x+(y+j)*X_NUM])
         {
@@ -44,7 +44,7 @@ int check(int x,int y)//具体判断
     {
         return who;
     }
-   for (i = 1, j = -1 ; i < 5; i++,j--)//斜上
+   for (i = 1, j = -1 ; i < 5; i++,j--)//斜上判断五个棋子是否成行
     {
         if (who == chess_board_array[x+i+(y+j)*X_NUM])
         {
@@ -59,7 +59,7 @@ int check(int x,int y)//具体判断
     {
         return who;
     }
-   for (i = 1, j = 1 ; j < 5; j++,i++)//斜下
+   for (i = 1, j = 1 ; j < 5; j++,i++)//斜下判断五个棋子是否成行
     {
         if (who == chess_board_array[x+i+(y+j)*X_NUM])
         {
@@ -98,7 +98,7 @@ int chess_put(int x, int y)
     return 0;
 }
 
-int chess_doing(void)
+int chess_doing(void)//定位棋子位置
 {
     int rx = (mx-ST_X)%SPACE;//获取棋子在棋盘空格上的位置，距离最近的棋盘线的位置
     int ry = (my-ST_Y)%SPACE;

@@ -1,3 +1,5 @@
+/*文件内部存放基本元素*/
+
 #include<stdio.h>
 #include"various.h"
 #include "func.h"
@@ -5,20 +7,20 @@
 
 
 
-int fb_one_pixel(int x, int y, u32_t color)
+int fb_one_pixel(int x, int y, u32_t color)                             //画点
 {
     *((u32_t*)fb_v.memo + x + y * fb_v.w) = color;
     return 0;
 
 }
-void swap(int *a, int *b)
+void swap(int *a, int *b)                                              //交换元素
 {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
-int fb_line(int x1, int y1, int x2, int y2, u32_t color )
+int fb_line(int x1, int y1, int x2, int y2, u32_t color )             // 画线            
 {
     int dx = x2 - x1;
     int dy = y2 - y1;
@@ -82,7 +84,7 @@ int fb_line(int x1, int y1, int x2, int y2, u32_t color )
         return 0;
     }
 
-    int fb_circle(int x0, int y0, int r, u32_t color)
+    int fb_circle(int x0, int y0, int r, u32_t color)                             //画圆
     {
         
         int x = 0;
@@ -108,7 +110,7 @@ int fb_line(int x1, int y1, int x2, int y2, u32_t color )
         }
         return 0;
     }
-    int  fb_chessboard(u32_t color)
+    int  fb_chessboard(u32_t color)                                           //画棋盘
     {
         int i = 0,j = 0;
         int x1 = 100, y1 = 0, x2 = fb_v.w, y2 = 0;  
